@@ -85,6 +85,44 @@ header {
         }
       }
     }
+
+    .bx {
+      display: none;
+    }
+  }
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+
+    background: linear-gradient(
+      101.47deg,
+      #0a0c10 26.38%,
+      rgba(10, 12, 16, 0.8) 50.07%,
+      #0a0c10 73.17%
+    );
   }
 }
 
@@ -96,7 +134,9 @@ header {
   margin: 0 auto;
   padding: 2.25rem 1rem;
 
-  overflow: hidden;
+  height: 85vh;
+
+  overflow: none;
 
   & .container-item-1 {
     max-width: 36rem;
@@ -104,6 +144,14 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    & .item-1-img {
+      padding-inline: 0.5rem;
+    }
+
+    & p {
+      margin-block: 1rem;
+    }
 
     & .btn {
       display: inline-block;
@@ -173,6 +221,7 @@ header {
       display: inline-block;
 
       padding: 0.625rem 2rem;
+      margin-left: 1rem;
       border-radius: 4px;
 
       transform: skewX(-10deg);
@@ -207,12 +256,71 @@ header {
         }
       }
     }
+
+    & .item-1-links-img {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
   }
 
   & .container-item-2 {
     & .spiderman {
       width: 150%;
-      transform: translate3d(-170px, 0, 0);
+      transform: translate3d(-200px, 0, 0);
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  header {
+    & .navbar {
+      & .nav-menu {
+        & .nav-list {
+          display: none;
+        }
+      }
+
+      & .nav-social {
+        display: none;
+      }
+
+      & .bx {
+        display: block;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  & .container {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+
+    & .container-item-1 {
+      & .item-1-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+
+        & .btn-secondary {
+          margin-left: 0;
+        }
+      }
+
+      & .item-1-links-img {
+        margin: 2rem auto;
+      }
+    }
+
+    & .container-item-2 {
+      & .spiderman {
+        width: 100%;
+        transform: translate3d(0, 0, 0);
+      }
     }
   }
 }
